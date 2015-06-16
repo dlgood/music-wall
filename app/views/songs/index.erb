@@ -1,0 +1,13 @@
+<% @songs.each do |song| %>
+  <div class="song">
+    <h3><small>(by: <%= song.artist %>)</small></h3>
+    <p>
+      <%= song.title %>
+    </p>
+    <p>
+      <%= song.url %>
+    </p>
+  </div>
+<% end %>
+
+<a href="/songs/new">Post a song...but keep it clean)!</a>

@@ -1,0 +1,29 @@
+<p>
+  Author: <%= @song.title %>
+</p>
+
+<p>
+  Content: <%= @song.artist  %>
+</p>
+
+<p>
+  URL: <%= @song.url  %>
+</p>
+
+<hr/>
+<a href="/songs">Back to All Songs</a>
+
+<h2>Other songs by this artist</h2>
+
+<% Song.where("artist = ? AND id <> ?", @song.artist, @song.id).each do |song| %>
+  <div class="song">
+    <p>
+      <%= song.title %>
+    </p>
+    <p>
+      <%= song.url %>
+    </p>
+  </div>
+<% end %>
+
+<a href="/songs/new">Post a song... It's FREE (for now)!</a>
